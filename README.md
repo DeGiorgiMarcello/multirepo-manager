@@ -1,7 +1,12 @@
 # Multirepository Manager
 A CLI to perform simple git operation on multiple repository **at the same time**. The available commands are very limited, but they are the most common ones. The main goal of this project is to provide a simple way to manage multiple repositories at the same time, particularly useful if you are working on a multirepository project where all the involved distributions are installed in editable mode.
 
+## Installation
+To install the CLI, simply run the following command:
 
+```
+pip install multirepo-manager
+```
 ## How to use it
 1. Run the command you want to execute on all the repositories
 
