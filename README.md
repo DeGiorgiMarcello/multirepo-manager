@@ -20,7 +20,7 @@ The first step is to set the path to the folder containing the involved reposito
 This can be done either by:
 
 1. Setting the env variable `REPOS_FOLDER`
-1. Running the CLI command `multirepo set-path /foo/bar/multirepo_project`
+1. Running the CLI command `multirepo set-folder /foo/bar/multirepo_project`
 
 ### Commands
 Once the path is set, simply type `multirepo` on your command prompt to have a list of the available commands.
