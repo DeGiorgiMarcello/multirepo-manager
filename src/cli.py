@@ -98,7 +98,7 @@ def set_folder(path: str):
     "Set the folder path containing the repositories"
     if environ.get("REPOS_FOLDER"):
         if not click.confirm(
-            f"A folder path containing the repositories has already been set. Do you want to overwrite it? (y/n). The set path is '{path}'."
+            f"A folder path containing the repositories has already been set. Do you want to overwrite it? (y/n). The path set is '{path}'."
         ):
             click.get_current_context().exit(0)
 

@@ -1,4 +1,4 @@
-from src.cli import get_repos_folders, iterate_and_apply, is_git_repo
+from src.cli import get_repos_folders, iterate_and_apply, is_git_repo, cli
 from click.testing import CliRunner
 from unittest.mock import Mock
 from pathlib import Path
@@ -42,3 +42,21 @@ def test_is_git_repo(tmp_path):
 
     assert not is_git_repo(Path("tests/repos/A"))
     assert is_git_repo(tmp_path)
+
+
+def test_set_folder(monkeypatch, tmp_path):
+    monkeypatch.delenv("REPOS_FOLDER")
+    monkeypatch.setattr("src.cli._ENV_FILE", tmp_path / ".env")
+    runner = CliRunner()
+    result = runner.invoke(cli, ["set-folder", "tests/repos"])
+    assert result.exit_code == 0
+    assert "Folder path set successfully! (tests/repos)" in result.output
+
+
+def test_set_folder_already_set(monkeypatch, tmp_path):
+    monkeypatch.setenv("REPOS_FOLDER", "tests/repos")
+
+    runner = CliRunner()
+    result = runner.invoke(cli, ["set-folder", "tests/repos"])
+    assert result.exit_code == 0
+    assert "A folder path containing the repositories" in result.output
