@@ -46,6 +46,7 @@ def iterate_and_apply(repos: list[Path], cmd: str):
         click.echo(getattr(g, cmd)())
 
 
+@click.version_option(package_name="multirepo")
 @click.group()
 def cli():
     "CLI commands for simple git operation on multiple repositories in the same folder"
